@@ -12,4 +12,11 @@ df.head() #look at data
 df = df.sort_values(by=['Year']) #sort by year from oldest to newest 
 df.head() #look at data 
 
+#convert acres column to a float 
+df.astype({'Acres':'float64'}).dtypes
+
+#new column for square miles
+df["Sq Miles"] = df["Acres"] * 0.0015625
+df.head() #look at data
+
 df.to_csv("WildfiresCleaned.csv", index=False) #write to new csv file 
